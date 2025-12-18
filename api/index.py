@@ -3,9 +3,9 @@ from fastapi import FastAPI
 app = FastAPI()
 
 @app.get("/")
-def root():
-    return {"Python": "on Vercel"}
+async def root():
+    return {"status": "ok"}
 
 @app.post("/anything")
-def post_anything():
-    return {"Python": "on Vercel"}
+async def anything():
+    return {"status": "posted"}
