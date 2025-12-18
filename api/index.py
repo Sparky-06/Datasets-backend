@@ -8,7 +8,5 @@ def get_root():
 
 
 @app.get("/anything")
-@app.post("/anything")
-def anything():
+def post_anything():
     return {"Python": "on Vercel"}
-
