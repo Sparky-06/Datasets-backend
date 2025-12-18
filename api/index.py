@@ -3,10 +3,12 @@ from fastapi import FastAPI
 app = FastAPI()
 
 @app.get("/")
-def get_root():
+def root():
     return {"Python": "on Vercel"}
 
-
-@app.get("/anything")
+@app.post("/anything")
 def post_anything():
     return {"Python": "on Vercel"}
+
+# 👇 THIS is the important part
+handler = app
