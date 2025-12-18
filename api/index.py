@@ -1,5 +1,4 @@
 from fastapi import FastAPI
-from mangum import Mangum
 
 app = FastAPI()
 
@@ -10,5 +9,3 @@ def root():
 @app.post("/anything")
 def post_anything():
     return {"Python": "on Vercel"}
-
-handler = Mangum(app)
