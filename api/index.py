@@ -3,10 +3,10 @@ from fastapi import FastAPI
 app = FastAPI()
 
 @app.get("/")
-def read_root():
+def get_root():
     return {"Python": "on Vercel"}
 
 
-@app.post("/anythin")
-def read_root():
+@app.post("/anything")
+def post_anything():
     return {"Python": "on Vercel"}
