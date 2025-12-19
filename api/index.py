@@ -3,6 +3,21 @@ import httpx
 import requests
 from api.ml.ml import fetch_decision
 
+from fastapi.middleware.cors import CORSMiddleware
+
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=[
+        "https://datasets-frontend-teal.vercel.app",
+        "http://localhost:5173",  # for local dev
+    ],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
+
 app = FastAPI(title="Smart Home Backend")
 
 
@@ -14,9 +29,10 @@ async def health_check():
     return {"status": "ok"}
 
 
-@app.post("/anything")
-async def anything():
-    return {"status": "posted"}
+@app.post("/state")
+async def state():
+    data = fetch_decision()
+    return data
 
 
 @app.get("/energy-usage")
