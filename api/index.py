@@ -6,6 +6,9 @@ from api.ml.ml import fetch_decision
 from fastapi.middleware.cors import CORSMiddleware
 
 
+app = FastAPI(title="Smart Home Backend")
+
+
 app.add_middleware(
     CORSMiddleware,
     allow_origins=[
@@ -17,8 +20,6 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-
-app = FastAPI(title="Smart Home Backend")
 
 
 SMART_HOME_STATE_URL = "https://smart-home-agent.onrender.com/state"
